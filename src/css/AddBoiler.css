@@ -11,7 +11,10 @@ input {
 }
 
 #addNewDiv {
-    width: fit-content;    
+    width: fit-content;  
+    border: 1px solid;
+    padding: 30px;  
+    padding-bottom: 75px;
 }
 
 #addNewTitle {

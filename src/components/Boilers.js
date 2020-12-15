@@ -8,7 +8,6 @@ class Boilers extends Component {
     return (
       <div>
         <table>
-          <caption>Boilers</caption>
           <tbody>
             <tr>
               <th>Id</th>

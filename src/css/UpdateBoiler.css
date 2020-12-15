@@ -12,6 +12,8 @@ input {
 
 #updateDiv {
     width: fit-content;    
+    border: 1px solid;
+    padding: 30px;
 }
 
 #updateTitle {

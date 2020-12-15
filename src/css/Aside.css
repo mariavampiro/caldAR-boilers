@@ -7,29 +7,32 @@ aside {
 }
 
 #asideDiv1 {
-    background-color:#00004d;
+    background-color:#3b4b5e;
+    border: 1px solid #FC6225;
 }
 
 #asideTitle {
     margin: 0px;
     padding: 25px;
-    height: 75px;
+    height: 45px;
     color: #ffffff;
 }
 
 #asideDiv2 {
-    background-color:#000d1a;
+    background-color:#232F3E;
     flex-grow: 1;
     display: flex;
     align-items: center;
+    border: 1px solid #FC6225;
 }
 
 li {
-    margin-bottom: 10px;
+    margin-bottom: 25px;
 }
 
 a {
     color: #ffffff;
+    font-size: small;
     text-decoration: none;
 }
 
