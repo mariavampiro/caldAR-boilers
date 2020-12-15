@@ -1,0 +1,38 @@
+aside {
+    display: flex;
+    flex-direction: column;
+    flex: 20%;
+    float: left;
+    height: auto;
+}
+
+#asideDiv1 {
+    background-color:#00004d;
+}
+
+#asideTitle {
+    margin: 0px;
+    padding: 25px;
+    height: 75px;
+    color: #ffffff;
+}
+
+#asideDiv2 {
+    background-color:#000d1a;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+ol {
+    list-style-type: none;
+}

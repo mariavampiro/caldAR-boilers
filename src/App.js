@@ -1,63 +1,52 @@
 import React, { Component } from 'react';
-import Header from './components/layout/Header';
-import Todos from './components/Todos';
-import AddTodo from './components/AddTodo';
-import uuid from 'uuid';
+import Header from './components/Header';
+import Aside from './components/Aside';
+import boilers from './mocks/boilers.json';
+import Boilers from './components/Boilers';
+import AddBoiler from './components/AddBoiler';
+import UpdateBoiler from './components/UpdateBoiler';
+import './css/App.css';
 
 class App extends Component {
-  state = {
-    todos: [
-      {
-        id: 1,
-        title: 'Take out trash',
-        completed: true,
-      },
-      {
-        id: 2,
-        title: 'Laundry',
-        completed: true,
-      },
-      {
-        id: 3,
-        title: 'Meeting with boss',
-        completed: false,
-      },
-    ]
-  }
-  
-  // Toggle Complete
-  markComplete = (id) => {
-    this.setState({ todos: this.state.todos.map(todo => {
-      if(todo.id === id) {
-        todo.completed = !todo.completed
-      }
-      return todo;
-    }) })
+  state = {boilers};
+
+  deleteBoiler = (id) => {
+    this.setState({boilers: [...this.state.boilers.filter(boiler => boiler.id !== id)] });
   }
 
-  // Delete Todo
-  delTodo = (id) => {
-    this.setState({ todos: [...this.state.todos.filter(todo => todo.id!== id)] })
+  updateButton = (boiler) => console.log(boiler);
+
+  updateForm = (updatedBoiler) => {
+    this.setState({boilers: [...this.state.boilers.map(boiler => {
+      if(parseInt(boiler.id) === parseInt(updatedBoiler.id)) {
+        boiler = updatedBoiler;
+      }
+      return boiler;
+    })]});
   }
-  
-  // Add Todo
-  addTodo = (title) => {
-    const newTodo = {
-      id: uuid.v4(),
-      title: title,
-      completed: false,
-    }
-    this.setState({ todos: [...this.state.todos, newTodo] })
+
+  addBoiler = (boiler) => {
+    boiler.id = this.state.boilers[this.state.boilers.length - 1].id + 1;
+    this.setState({
+      boilers:[...this.state.boilers, boiler]
+    })
   }
 
   render() {
-    console.log(this.state.todos)
     return (
-      <div className="App">
-        <div className="container">
-          <Header />
-          <AddTodo addTodo={this.addTodo} />
-          <Todos todos={this.state.todos} markComplete={this.markComplete} delTodo={this.delTodo} />
+      <div>
+        <div id = 'div1'>
+          <Aside />
+          <div id = 'div2'>
+            <div id = 'div3'>
+              <Header />
+              <Boilers boilers={this.state.boilers} deleteBoiler={this.deleteBoiler} updateButton={this.updateButton}/>
+            </div>
+          </div>
+        </div>
+        <div style = {{ display: 'flex', justifyContent: 'center', margin:'25px'}}>
+        <AddBoiler addBoiler={this.addBoiler} />
+        <UpdateBoiler updateForm={this.updateForm} />
         </div>
       </div>
     );
